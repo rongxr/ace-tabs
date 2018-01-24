@@ -110,7 +110,7 @@
 
             var dataId = $(this).attr('data-id');
             if (dataId != "") {
-                //Ôö¼Ócookie ÔİÊ±ÆÁ±Î
+                //å¢åŠ cookie æš‚æ—¶å±è”½
                 //top.$.cookie('nfine_currentmoduleid', dataId, { path: "/" });
             }
             var dataUrl = $(this).attr('href');
@@ -141,7 +141,7 @@
                 var str1 = '<iframe class="ace_iframe" id="iframe' + dataId + '" name="iframe' + dataId + '"  width="100%" height="100%" src="' + dataUrl + '" frameborder="0" data-id="' + dataUrl + '" seamless></iframe>';
                 $('.mainContent').find('iframe.ace_iframe').hide();
                 $('.mainContent').append(str1);
-                //ÏÔÊ¾ ¼ÓÔØ¹ı¶É¶¯»­ 
+                //æ˜¾ç¤º åŠ è½½è¿‡æ¸¡åŠ¨ç”» 
                 //$.loading(true);
                 //$('.mainContent iframe:visible').load(function () {
                     //$.loading(false);
@@ -149,13 +149,13 @@
                 $('.menuTabs .page-tabs-content').append(str);
                 $.acetab.scrollToTab($('.menuTab.active'));
             }
-            //×ó²à²Ëµ¥ li active ·½·¨
-            //¸ßÁÁµã»÷µÄ²Ëµ¥
+            //å·¦ä¾§èœå• li active æ–¹æ³•
+            //é«˜äº®ç‚¹å‡»çš„èœå•
             
             $(".nav-list").find("ul.submenu li").removeClass("active");
             $(this).parent().addClass('active');
             return false;
-        },//Ôö¼ÓÒ»¸ö·½·¨ Ìí¼ÓĞÂµÄtab
+        },//å¢åŠ ä¸€ä¸ªæ–¹æ³• æ·»åŠ æ–°çš„tab
         addNewTab: function (dataId, dataUrl, menuName) {
             $("#header-nav>ul>li.open").removeClass("open");
             var str = '<a href="javascript:;" class="active menuTab" data-id="' + dataUrl + '">' + menuName + ' <i class="fa fa-remove"></i></a>';
@@ -265,7 +265,8 @@
             return width;
         },
         init: function () {
-            $('.menuItem').on('click', $.acetab.addTab);
+            //$('.menuItem').on('click', $.acetab.addTab);
+            $("#sidebar").delegate(".menuItem","click",$.acetab.addTab);
             $('.menuTabs').on('click', '.menuTab i', $.acetab.closeTab);
             $('.menuTabs').on('click', '.menuTab', $.acetab.activeTab);
             $('.tabLeft').on('click', $.acetab.scrollTabLeft);
